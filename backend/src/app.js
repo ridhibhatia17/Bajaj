@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bfhlRoutes = require('./routes/bfhl.route');
+const bfhlController = require('./controllers/bfhl.controller');
 
 const app = express();
 
@@ -11,10 +12,9 @@ app.use(express.json());
 // Routes
 app.use('/bfhl', bfhlRoutes);
 
-// Basic health check route
-app.get('/', (req, res) => {
-    res.status(200).json({ message: 'BFHL API is running' });
-});
+// Fallback routes (in case Vercel env variable is missing /bfhl)
+app.post('/', bfhlController.handlePostBfhl);
+app.get('/', bfhlController.handleGetBfhl);
 
 // 404 Route
 app.use((req, res) => {
