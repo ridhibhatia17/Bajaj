@@ -8,7 +8,9 @@ export const analyzeHierarchy = async (dataArray) => {
     return response.data;
   } catch (error) {
     if (error.response) {
-      throw new Error(error.response.data.message || 'API Error: Something went wrong with the server.');
+      // The request was made and the server responded with a status code out of 2xx
+      const errorMsg = error.response.data.message || error.response.data.error || 'API Error: Something went wrong with the server.';
+      throw new Error(`Server Error: ${errorMsg}`);
     } else if (error.request) {
       throw new Error('Network Error: Unable to reach the server. Make sure it is running.');
     } else {

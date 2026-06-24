@@ -139,17 +139,6 @@ The application is pre-configured with continuous deployment configurations.
    - Connect Render via Blueprint deployment.
    - Render will automatically locate the `render.yaml` file, construct the web service, and provision dependencies automatically.
 
----
-
-## 📸 Screenshots
-
-*(Remember to replace these with actual deployed screenshots prior to submission!)*
-
-### Dashboard & Analytics Overview
-> ![Dashboard Screenshot](./assets/dashboard_placeholder.png)
-
-### Recursive Flow & API Error Handling
-> ![Tree Visualizer](./assets/visualizer_placeholder.png)
 
 ---
 
