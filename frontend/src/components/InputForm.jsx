@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const InputForm = ({ onSubmit, isLoading }) => {
   const [inputText, setInputText] = useState("A->B\nA->C\nB->D");
@@ -10,7 +11,12 @@ const InputForm = ({ onSubmit, isLoading }) => {
   };
 
   return (
-    <div className="glass-card p-6 animate-slide-up">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="glass-card p-6"
+    >
       <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
         Data Input
       </h2>
@@ -22,10 +28,12 @@ const InputForm = ({ onSubmit, isLoading }) => {
           onChange={(e) => setInputText(e.target.value)}
           disabled={isLoading}
         />
-        <button
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           type="submit"
           disabled={isLoading}
-          className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold shadow-lg transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+          className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
         >
           {isLoading ? (
             <span className="flex items-center gap-2">
@@ -38,9 +46,9 @@ const InputForm = ({ onSubmit, isLoading }) => {
           ) : (
             'Analyze Hierarchy'
           )}
-        </button>
+        </motion.button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
