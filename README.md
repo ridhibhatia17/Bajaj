@@ -1,6 +1,4 @@
-# Hierarchy Analyzer - Chitkara Full Stack Engineering Challenge
-
-![Hierarchy Analyzer Banner](./frontend/public/vite.svg) <!-- Replace with a nice project banner screenshot -->
+# Hierarchy Analyzer 
 
 ## 🚀 Project Overview
 
